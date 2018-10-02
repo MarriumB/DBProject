@@ -17,6 +17,8 @@ $password = "13099";
   
 try {
     $con = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);
+
+//HI
 }
   
 // show error
