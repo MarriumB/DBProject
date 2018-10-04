@@ -65,6 +65,7 @@ if($_POST){
         // Execute the query
         if($stmt->execute()){
             echo "<div class='alert alert-success'>Record was saved.</div>";
+ "Refresh: 1, url=mytablesalesperson_13099.php"
 
 
 
