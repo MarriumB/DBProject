@@ -10,7 +10,26 @@
 
                 <br />  
                 <div class="table-responsive">  
-                     <h3 align="center">Invoice Table</h3><br />  
+                     <h3 align="center">Invoice Table</h3><br /> 
+
+
+			<h3>Select Customer:</h3>
+		<?php
+	$host = "localhost";
+	$db_name = "CUSTOMERS";
+	$username = "marium";
+	$password = "13099";
+	$con = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);
+	$stmt = $con->prepare("select ID from OURCLIENTS");
+	$stmt->execute();
+    	echo "<select id='CUSTOMER_ID'>";
+	echo '<option value="">None</option>';
+    	while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
+                  echo '<option value="'.$row["ID"].'">'.$row["ID"].'</option>';                
+	}
+    	echo "</select>";
+	?>
+	<br /> 
                      <div id="live_data"></div>                 
                 </div>  
            </div>  
@@ -18,11 +37,18 @@
  </html>  
  <script>  
  $(document).ready(function(){  
+var CUSTOMER_ID = $('#CUSTOMER_ID').val();
+      $("#CUSTOMER_ID").change(function(){
+       CUSTOMER_ID = $('#CUSTOMER_ID').val();
+	fetch_data();
+      });
       function fetch_data()  
       {  
            $.ajax({  
                 url:"select.php",  
-                method:"POST",  
+                method:"POST", 
+		data:{CUSTOMER_ID:CUSTOMER_ID},  
+                dataType:"text", 
                 success:function(data){  
                      $('#live_data').html(data);  
                 }  
@@ -31,23 +57,18 @@
       fetch_data();  
       $(document).on('click', '#btn_add', function(){  
            var ORDER_NO = $('#ORDER_NO').text();  
-           var CUSTOMER = $('#CUSTOMER').text();  
+           var CUSTOMER = CUSTOMER_ID;  
            var DATE = $('#DATE').text();  
-           var SALESPERSON = $('#SALESPERSON').text();  
-           var PRODUCT = $('#PRODUCT').text();  
+           var SALESPERSON = $('#SALESPERSON').val();  
+           var PRODUCT = $('#PRODUCT').val();  
            var QUANTITY1 = $('#QUANTITY').text();  
            var RATE1 = $('#RATE').text(); 
  	   var QUANTITY = parseInt(QUANTITY1);  
            var RATE =parseInt(RATE1); 
-           var AMOUNT =QUANTITY*RATE;
+           var AMOUNT = 0;
            if(ORDER_NO == '')  
            {  
                 alert("Enter Order Number");  
-                return false;  
-           }  
-           if(CUSTOMER == '')  
-           {  
-                alert("Enter Customer Id");  
                 return false;  
            }  
            if(DATE == '')  
@@ -96,6 +117,7 @@
                 dataType:"text",  
                 success:function(data){  
                      alert(data);  
+		     fetch_data();
                 }  
            });  
       }  
