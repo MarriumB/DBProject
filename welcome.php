@@ -13,6 +13,7 @@
 	<a href='mytablesalesperson.php' class='btn btn-primary'>Salesperson</a>
 	<a href='producttable.php' class='btn btn-primary'>Product</a>
         <a href='usertable.php' class='btn btn-primary'>User</a>
+              <a href='salesorder.php' class='btn btn-primary'>Salesorder</a>
        
        
 	</div>
