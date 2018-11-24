@@ -44,7 +44,7 @@ try {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
      
     // values to fill up our form
-    $productcode = $row['PRODUCTCODE'];
+    //$productcode = $row['PRODUCTCODE'];
     $brand = $row['BRAND'];
     $type = $row['TYPE'];
     $shade=$row['SHADE'];
@@ -70,7 +70,7 @@ if($_POST){
         // it is better to label them and not use question marks
         $query = "UPDATE PRODUCT_13099 
                     SET PRODUCTCODE=:PRODUCTCODE, BRAND=:BRAND, TYPE=:TYPE, SHADE=:SHADE, SALESPRICE=:SALESPRICE 
-                    WHERE PRODUCTCODE=:PRODUCTCODE";
+                    WHERE PRODUCTCODE='$productcode'";
  
         // prepare query for excecution
         $stmt = $con->prepare($query);
