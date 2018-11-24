@@ -71,7 +71,7 @@
     			$output .= '</select>
 		     </td>
                      <td class="QUANTITY" data-id6="'.$row["ORDER_NO"].'" contenteditable>'.$row["QUANTITY"].'</td>
-                     <td class="RATE" data-id7="'.$row["ORDER_NO"].'" contenteditable>'.$row["RATE"].'</td>
+                     <td>'.$row["RATE"].'</td>
                      <td>'.$row["AMOUNT"].'</td> 
                      <td><button type="button" name="delete_btn" data-id9="'.$row["ORDER_NO"].'" class="btn btn-xs btn-danger btn_delete">X</button></td>  
                 </tr>  

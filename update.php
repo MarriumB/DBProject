@@ -6,7 +6,7 @@
     <div class="container">
   
         <div class="page-header">
-            <h1>Update Product</h1>
+            <h1>Update a Customer</h1>
         </div>
      
 <?php
@@ -92,6 +92,7 @@ if($_POST){
         // Execute the query
         if($stmt->execute()){
             echo "<div class='alert alert-success'>Record was updated.</div>";
+	    header("refresh:1;url=mytable.php");
         }else{
             echo "<div class='alert alert-danger'>Unable to update record. Please try again.</div>";
         }

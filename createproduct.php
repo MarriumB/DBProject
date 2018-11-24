@@ -64,6 +64,7 @@ if($_POST){
         // Execute the query
         if($stmt->execute()){
             echo "<div class='alert alert-success'>Record was saved.</div>";
+	    header("refresh:1;url=producttable.php");
         }else{
             echo "<div class='alert alert-danger'>Unable to save record.</div>";
         }

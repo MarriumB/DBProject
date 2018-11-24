@@ -7,7 +7,7 @@
     <div class="container">
    
         <div class="page-header">
-            <h1>Create Product</h1>
+            <h1>Create a Salesperson</h1>
         </div>
 
 
@@ -65,8 +65,7 @@ if($_POST){
         // Execute the query
         if($stmt->execute()){
             echo "<div class='alert alert-success'>Record was saved.</div>";
- "Refresh: 1, url=mytablesalesperson_13099.php"
-
+	    header("refresh:1;url=mytablesalesperson.php");
 
 
 }else{

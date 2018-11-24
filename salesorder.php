@@ -9,10 +9,11 @@
            <div class="container">  
 
                 <br />  
-                <div class="table-responsive">  
-                     <h3 align="center">Invoice Table</h3><br /> 
-
-
+                <div class="table-responsive">   
+			<div align='right'>
+			<a href='welcome.php' class='btn btn-primary m-r-1em'>Home</a>
+			<a href = 'logout.php' class='btn btn-danger'>Sign Out</a>
+			</div>
 			<h3>Select Customer:</h3>
 		<?php
 	$host = "localhost";
@@ -138,23 +139,18 @@ var CUSTOMER_ID = $('#CUSTOMER_ID').val();
       });  
       $(document).on('blur', '.SALESPERSON', function(){  
            var id = $(this).data("id4");  
-           var SALESPERSON = $(this).text();  
+           var SALESPERSON = $(this).val();  
            edit_data(id,SALESPERSON, "SALESPERSON");  
       });
       $(document).on('blur', '.PRODUCT', function(){  
            var id = $(this).data("id5");  
-           var PRODUCT = $(this).text();  
+           var PRODUCT = $(this).val();  
            edit_data(id, PRODUCT, "PRODUCT");  
       });  
       $(document).on('blur', '.QUANTITY', function(){  
            var id = $(this).data("id6");  
            var QUANTITY = $(this).text();  
            edit_data(id,QUANTITY, "QUANTITY");  
-      });
-      $(document).on('blur', '.RATE', function(){  
-           var id = $(this).data("id7");  
-           var RATE = $(this).text();  
-           edit_data(id, RATE, "RATE");  
       });   
       $(document).on('click', '.btn_delete', function(){  
            var id=$(this).data("id9");  

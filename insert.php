@@ -7,5 +7,8 @@
  {  
       mysqli_query($connect, "UPDATE SALESORDER_13099 SET AMOUNT=RATE*QUANTITY WHERE ORDER_NO='".$_POST["ORDER_NO"]."'");
       echo 'Data Inserted';  
+ }
+ else{
+      echo 'Error';
  } 
  ?> 
